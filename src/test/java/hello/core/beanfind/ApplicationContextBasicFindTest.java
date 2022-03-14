@@ -1,8 +1,8 @@
 package hello.core.beanfind;
 
 import hello.core.AppConfig;
-import hello.core.member.MemberSerivceImpl;
 import hello.core.member.MemberService;
+import hello.core.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,21 +18,21 @@ public class ApplicationContextBasicFindTest {
     @DisplayName("빈 이름으로 조회")
     void findBeanByName() {
         MemberService memberService = ac.getBean("memberService", MemberService.class);
-        Assertions.assertThat(memberService).isInstanceOf(MemberSerivceImpl.class);
+        Assertions.assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
     @Test
     @DisplayName("이름 없이 타입으로만 조회")
     void findBeanByType() {
         MemberService memberService = ac.getBean(MemberService.class);
-        Assertions.assertThat(memberService).isInstanceOf(MemberSerivceImpl.class);
+        Assertions.assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
     @Test
     @DisplayName("구체 타입으로 조회")
     void findBeanByName2() {
-        MemberSerivceImpl memberService = ac.getBean("memberService", MemberSerivceImpl.class);
-        Assertions.assertThat(memberService).isInstanceOf(MemberSerivceImpl.class);
+        MemberServiceImpl memberService = ac.getBean("memberService", MemberServiceImpl.class);
+        Assertions.assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
     @Test
